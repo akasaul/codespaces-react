@@ -1,13 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header {
+    background: url("./assets/images/bg-sidebar-mobile.svg");
+}
+
+.bg {
+    background-repeat: no-repeat;
+    background-position: cover;
+}
+
+.addons-checkbox:checked {
+    background-color: hsl(243, 100%, 62%);
+}
+
+.toggle-checkbox:checked {
+    @apply: right-0 border-marine-blue-400;
+    right: 0;
+    border-color: hsl(213, 96%, 18%);
+  }
+.toggle-checkbox:checked + .toggle-label {
+    @apply: bg-marine-blue-400;
+    background-color: hsl(213, 96%, 18%);
+  }
+
+@media (min-width: 374px) {
+    .header {
+        background: url("./assets/images/bg-sidebar-desktop.svg");
+        background-position: center center;
+    }
 }
