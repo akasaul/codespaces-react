@@ -14,7 +14,7 @@ export const Container = ({children, next, prev, page}) => {
 
         </section>
         {/* Footer Section  */}
-        <Footer prev={prev} next={next}/>
+        <Footer prev={prev} next={next} page={page}/>
    </>
   )
 }

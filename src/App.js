@@ -8,40 +8,50 @@ import { Container } from "./components/Container";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
-  
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    plan: 0,
+    addOns: 0,
+
+  })
   const next = () => {
     console.log(currentPage);
-    setCurrentPage((prev) => prev + 1);
+    setCurrentPage((prev) => prev >= 3 ? prev = 3 : prev + 1);
   }
   
   const prev = () => {
     console.log(currentPage);
-    setCurrentPage((prev) => prev - 1);
+    setCurrentPage((prev) => prev <=0 ? prev = 0 : prev - 1);
+
   }
   
   {
     switch (currentPage) {
         case 0:
           return <Container next={next} page={currentPage} prev={prev}>
-            <PersonalInfo />
+            <PersonalInfo data={data} setData={setData} />
           </Container>
         case 1:
-          return <Container>
-          <Plan />
+          return <Container next={next} page={currentPage} prev={prev}>
+          <Plan data={data} setData={setData} />
         </Container>
 
         case 2:
-          return <Container>
-          <AddOns />
+          return <Container next={next} page={currentPage} prev={prev}>
+          <AddOns data={data} setData={data} />
         </Container>
 
         case 3:
-          return <Container>
-          <Finish />
+          return <Container next={next} page={currentPage} prev={prev}>
+          <Finish data={data} setData={data} />
         </Container>
 
         default:
-          return <PersonalInfo />;
+          return <Container next={next} page={currentPage} prev={prev}>
+          <PersonalInfo />
+        </Container>;
     }
   }
   // return(/   <div className="App">

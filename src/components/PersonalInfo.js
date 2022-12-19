@@ -1,6 +1,13 @@
 import React from 'react'
 
-const PersonalInfo = () => {
+const PersonalInfo = ({data, setData}) => {
+
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value
+    })
+  }
   return (
     <article className="bg-white sm:max-w-[500px] -mt-24 min-w-[270px] flex flex-col space-y-2 sm:shadow-none shadow w-[80%] mx-auto px-4 py-6 rounded-xl">
           <h3 className="text-xl font-bold text-marine-blue">Personal info</h3>
@@ -9,21 +16,21 @@ const PersonalInfo = () => {
             <div>
               <label for="name" className="text-marine-blue">Name</label>
               <div>
-                <input className="focus:border-none text-sm p-2 text-marine-blue rounded-lg border-2 max-w-32" placeholder="e.g. Stephen King" id="name" />
+                <input className="focus:border-none text-sm p-2 text-marine-blue rounded-lg border-2 max-w-32" value={data.name} onChange={(e) => handleChange(e) } name="name"  placeholder="e.g. Stephen King" id="name" />
               </div>
             </div>
             
             <div>
               <label className="text-marine-blue" for="email">Email</label>
               <div>
-                <input className="focus:border-none text-sm p-2 text-marine-blue rounded-lg border-2 max-w-32" placeholder="e.g. stephenking@lorem.com" id="email" />
+                <input className="focus:border-none text-sm p-2 text-marine-blue rounded-lg border-2 max-w-32" value={data.email} onChange={(e) => handleChange(e) } name="email" placeholder="e.g. stephenking@lorem.com" id="email" />
               </div>
             </div>
 
             <div>
               <label className="text-marine-blue" for="phone">Phone Number</label>
               <div>
-                <input className="focus:outline-none text-sm p-2 text-marine-blue rounded-lg border-2 max-w-32" placeholder="e.g. 1 234 567 890" id="name" />
+                <input className="focus:outline-none text-sm p-2 text-marine-blue rounded-lg border-2 max-w-32" value={data.phone} onChange={(e) => handleChange(e) } name="phone" placeholder="e.g. 1 234 567 890" id="name" />
               </div>
             </div>
           </form>

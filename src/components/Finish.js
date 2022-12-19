@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Finish = () => {
+const Finish = ({data}) => {
   return (
     <article className='bg-white sm:max-w-[500px] -mt-24 min-w-[270px] flex flex-col space-y-2 sm:shadow-none shadow w-[80%] mx-auto px-4 py-6 rounded-xl'>
         {/* Finsihing Up  */}

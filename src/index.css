@@ -29,6 +29,10 @@ body {
     background-color: hsl(213, 96%, 18%);
   }
 
+  .prev-btn:disabled,  .next-btn:disabled {
+    display: none;
+  }
+
 @media (min-width: 374px) {
     .header {
         background: url("./assets/images/bg-sidebar-desktop.svg");
